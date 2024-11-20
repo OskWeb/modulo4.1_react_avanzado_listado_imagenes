@@ -1,0 +1,407 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cart {
+  width: 400px;
+  height: 100vh;
+  background-color: azure;
+  box-shadow: 0px 0px 5px black;
+}
+.cart-top {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(78, 78, 240);
+  color: white;
+  padding: 10px;
+  height: 80px;
+}
+.cart-top-title {
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-top span {
+  display: flex;
+  align-items: center;
+  font-size: large;
+  text-transform: uppercase;
+}
+.cart-content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.cart-content .goToCartButton {
+  margin: 20px;
+}
+.cart-content-data {
+  height: 300px;
+  overflow-y: scroll;
+  margin: 10px 20px 30px 20px;
+}
+
+.cart-content-data .cartProduct {
+  width: 100%;
+  height: 50px;
+  
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.cart-content-data .cartProduct:nth-child(1) {
+  border-top: 1px solid black;
+}
+.cart-content-data .cartProduct .left-content {
+  display: flex;
+  
+}
+.cart-content-data .cartProduct .left-content img{
+  margin-right: 6px;
+  object-fit: cover;
+}
+.cart-content-data .cartProduct .left-content span {
+  align-self: center;
+}
+.layout-app-container {
+  width: 100%;
+}
+.emptyCartBox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.emptyCartBox .text-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.emptyCartBox .text-info .text-info-black {
+  font-weight: bold;
+}
+
+/*list cats - dogs page*/
+.sectionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.listImagesBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.listImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px;
+  height: 75vh;
+  overflow-y: scroll;
+  box-shadow: 0px 0px 5px gray;
+  padding: 20px;
+  
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.checkoutHeader {
+  display: flex;
+  flex-direction: column;
+}
+.checkoutHeader .buttonBox {
+  width: 100%;
+}
+
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  margin: 30px;
+position: relative;
+width: 100%;
+  
+}
+.stepper .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stepper .step:nth-child(3) .stepNumber {
+  align-self: flex-end;
+}
+.stepper .step .stepNumber {
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.stepNumberActive {
+  background-color: rgb(78, 78, 240);
+}
+.stepNumberDisabled {
+  background-color: gray;
+}
+.stepper .stepLine {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background-color: lightgray;
+  top: 23px;
+  z-index: -1;
+}
+.steps-box {
+  height: 400px;
+}
+
+.checkoutCartBox {
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 300px;
+  
+  
+}
+.checkoutCartBox .step-title {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  margin-bottom: 10px;
+}
+
+.productsList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  
+  background-color: azure;
+}
+
+.cartProductExtended {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+.cartProductExtended .contentBox {
+  display: flex;
+}
+.cartProductExtended .left-content {
+  margin-right: 30px;
+  
+}
+.cartProductExtended .left-content img {
+  height: 100px;
+  object-fit: cover;
+}
+.cartProductExtended .right-content .title {
+  width: 200px;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+}
+
+.cartProductExtended .right-content .info {
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+/*---------------Form personal data --------------------------------------------*/
+
+.personalDataForm {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+}
+.personalInfoSection {
+  display: flex;
+}
+.personalDataForm .formGroup {
+  width: 100%;
+}
+.form-control-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.submitPersonalDataButtonBox {
+  display: flex;
+  justify-content: flex-end;
+}
+.submitPersonalDataButton {
+  width: 100px;
+  padding: 10px;
+  background-color: rgb(78, 78, 240);
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.submitPersonalDataButton:hover {
+  box-shadow: 0px 0px 2px gray;
+  cursor: pointer;
+}
+
+.field-error {
+  margin-left: 20px;
+  color: red;
+}
+
+/*Download page ------------------------------------------------------------------------------------*/
+
+.checkoutPersonalDataBox {
+  margin-top: 290px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.checkoutPersonalDataBox .personalInfoSection {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.checkoutPersonalDataBox .personalInfoSection .infoBadge {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(78, 78, 240);
+  color: white;
+  font-size: 24px;
+  padding: 30px;
+  border-radius: 15px;
+  margin: 0px 20px 0px 20px;
+  width: 500px;
+  justify-content: center;
+}
+
+@media(max-width: 910px) {
+  .checkoutPersonalDataBox .personalInfoSection .infoBadge {
+    width: 100%;
+    margin: 0px 50px 0px 50px;
+  }
+  .personalDataForm {
+    width: 100%;
+    margin: 20px 50px 20px 50px;
+  }
+}
+.checkoutPersonalDataBox .personalInfoSection .infoBadge span {
+  width: 150px;
+}
+.step-title {
+  margin: 20px 0px 20px 50px;
+}
+
+.checkoutDownloadBox {
+  margin: 10px;
+  margin-top: 290px;
+}
+.downloadBox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.downloadImage {
+  display: flex;
+  flex-direction: column;
+  
+}
+.downloadImage img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.downloadImage button {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 0px 0px 5px 5px;
+}
+.downloadImage button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 762px) {
+  .cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: 360px;
+  }
+}
+@media (max-width: 500px) {
+  .card {
+    width: 100%;
+  }
+  .card img {
+    width: 100%;
+  }
+}
+
+.productsBox {
+  width: 100%;
+}
+
+.buttonsNavigation {
+  width: 270px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  gap: 10px;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(78, 78, 240);
+  color: white;
+}
+.MuiTablePagination-selectLabel, .pagination .MuiSelect-select, .pagination .MuiTablePagination-displayedRows, .pagination .MuiButtonBase-root{
+  color: white;
+}
+.MuiSelect-nativeInput , .css-j0riat-MuiSelect-nativeInput{
+  color: white;
+}
