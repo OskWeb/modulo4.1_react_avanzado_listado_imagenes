@@ -7,14 +7,15 @@ import { CheckoutContext } from '../../../core/context/checkoutContext';
 import { SlideTransition, TransitionsSnackbar } from '../../../common/transitionSnackbar';
 import { TransitionProps } from '@mui/material/transitions';
 import React from 'react';
+import { CartContext } from '../../../core/context/cartContext';
 
 const personalDataSchema = Yup.object().shape({
     firstName: Yup.string()
-        .min(2, 'Debe de tener al menos 2 caracteres')
+        .min(3, 'Debe de tener al menos 3 caracteres')
         .max(50, 'Debe de tener máximo 50 caracteres')
         .required('Debes de introducir tu nombre'),
     lastName: Yup.string()
-        .min(2, 'Debe de tener al menos 2 caracteres')
+        .min(3, 'Debe de tener al menos 3 caracteres')
         .max(50, 'Debe de tener máximo 50 caracteres')
         .required('Debes de introducir tu apellido/s'),
     email: Yup.string().email('Email inválido').required('Debes de introducir tu email')
@@ -26,9 +27,10 @@ export type snackbarType = {
 }
 export const PersonalDataForm = () => {
 
-    const context = useContext(CheckoutContext);
-
-    const { setFormOk, formData, setFormData } = context;
+    const checkoutContext = useContext(CheckoutContext);
+    const { setFormOk } = checkoutContext;
+    const cartContext = useContext(CartContext);
+    const { formData, setFormData } = cartContext;
 
     const [snackbar, setSnackbar] = useState<snackbarType>({
         open: false,
@@ -37,7 +39,6 @@ export const PersonalDataForm = () => {
 
     const handleSubmit = async (values) => {
         console.log(values);
-
         setFormOk(true);
         setFormData(values);
         handleStateChange(SlideTransition);
@@ -50,7 +51,6 @@ export const PersonalDataForm = () => {
             }
         >
     ) => {
-
         setSnackbar({
             open: !snackbar.open,
             transition,
@@ -71,7 +71,7 @@ export const PersonalDataForm = () => {
             {({ errors, touched }) => (
                 <Form className='personalDataForm'>
                     <FormGroup className='formGroup'>
-                        <div className='form-comtrol-box'>
+                        <div className='form-control-box'>
                             <Field
                                 className="form-control"
                                 name="firstName"
@@ -79,7 +79,7 @@ export const PersonalDataForm = () => {
                                 type="text"
                             />
                             {!errors.firstName && touched.firstName && (
-                                <CheckCircleIcon style={{ color: "#05cc30" }} />
+                                <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
                             )}
                         </div>
 
@@ -90,7 +90,7 @@ export const PersonalDataForm = () => {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <div className='form-comtrol-box'>
+                        <div className='form-control-box'>
                             <Field
                                 className="form-control"
                                 name="lastName"
@@ -100,7 +100,7 @@ export const PersonalDataForm = () => {
 
                             />
                             {!errors.lastName && touched.lastName && (
-                                <CheckCircleIcon style={{ color: "#05cc30" }} />
+                                <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
                             )}
                         </div>
                         <ErrorMessage
@@ -110,7 +110,7 @@ export const PersonalDataForm = () => {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <div className='form-comtrol-box'>
+                        <div className='form-control-box'>
                             <Field
                                 className="form-control"
                                 name="email"
@@ -120,7 +120,7 @@ export const PersonalDataForm = () => {
 
                             />
                             {!errors.email && touched.email && (
-                                <CheckCircleIcon style={{ color: "#05cc30" }} />
+                                <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
                             )}
                         </div>
 

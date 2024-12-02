@@ -1,19 +1,56 @@
-import { AppBar, Tab, Tabs } from '@mui/material'
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { AppBar, colors, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material'
+import { useContext, useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Cart } from './components/cart.component';
+import { CartContext } from '../../core/context/cartContext';
 
 export const PageHeaderComponent = () => {
 
-    const [selectedTab, setSelectedTab] = useState(0);
+    const [selectedTab, setSelectedTab] = useState("/cats");
+    const context = useContext(CartContext);
+    const { setCurrentPage } = context;
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const currentPath = location.pathname;
 
     const onHandleTabChange = (event, newValue) => {
         setSelectedTab(newValue);
+        navigate(newValue);
     }
+
+    useEffect(() => {
+        setCurrentPage(0);
+    }, [selectedTab])
+
+    const theme = createTheme({
+        components: {
+            MuiTabs: {
+                styleOverrides: {
+                    root: {
+                        '& .MuiTabs-indicator': {
+                            backgroundColor: 'white'
+                        }
+                    }
+                }
+            },
+            MuiTab: {
+                styleOverrides: {
+                    root: {
+                        color: 'black',
+                        '&.Mui-selected': {
+                            color: 'white',
+                        },
+
+                    }
+                }
+            }
+        }
+    })
 
     return (
         <AppBar
-
             sx={{
                 position: 'sticky',
                 margin: '0px',
@@ -25,44 +62,32 @@ export const PageHeaderComponent = () => {
                 zIndex: 2,
             }}
         >
-            <Tabs
+            <ThemeProvider theme={theme}>
+                <Tabs
+                    value={currentPath}
+                    onChange={onHandleTabChange}
+                >
+                    <Tab
+                        key="tab1"
+                        component={Link}
+                        to="/cats"
+                        label="Cats"
+                        value="/cats"
+                        className='tab'
 
-                value={selectedTab}
-                onChange={onHandleTabChange}
-            >
-                <Tab
-                    value={0}
-                    component={Link}
-                    to="/cats"
-                    label="Cats"
-                    className='tab'
-                    sx={{
-                        backgroundColor: selectedTab === 0 ? 'blue' : 'transparent',
-                        marginBottom: '5px',
-                        '&.Mui-selected': {
-                            backgroundColor: 'transparent',
-                            color: 'white', // Color del texto cuando está seleccionado
-                            borderBottom: '1px solid white'
-                        },
-                    }}
-                />
-                <Tab
-                    value={1}
-                    component={Link}
-                    to="/dogs"
-                    label="Dogs"
-                    className='tab'
-                    sx={{
-                        backgroundColor: selectedTab === 1 ? 'blue' : 'transparent',
-                        marginBottom: '5px',
-                        '&.Mui-selected': {
-                            backgroundColor: 'transparent', // Fondo para el Tab seleccionado
-                            color: 'white', // Color del texto cuando está seleccionado
-                            borderBottom: '1px solid white'
-                        },
-                    }}
-                />
-            </Tabs>
+
+                    />
+                    <Tab
+                        key="tab2"
+                        component={Link}
+                        to="/dogs"
+                        label="Dogs"
+                        value="/dogs"
+                        className='tab'
+
+                    />
+                </Tabs>
+            </ThemeProvider>
             <Cart />
         </AppBar>
 

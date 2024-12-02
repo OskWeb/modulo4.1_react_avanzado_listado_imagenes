@@ -3,12 +3,15 @@ import { ButtonsNavigation } from "../../common-app/buttonsNavigation"
 import { PersonalDataForm } from "./components/personalDataForm";
 import { CheckoutContext } from "../../core/context/checkoutContext";
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import { CartContext } from "../../core/context/cartContext";
 
 export const CheckoutPersonalDataComponent = () => {
 
-    const context = useContext(CheckoutContext);
+    const checkoutContext = useContext(CheckoutContext);
+    const cartContext = useContext(CartContext);
 
-    const { setFormOk, formData } = context;
+    const { setFormOk } = checkoutContext;
+    const { formData } = cartContext;
 
     useState(() => {
         if (formData.email == "") {

@@ -1,21 +1,23 @@
 import { Loading } from "../../common/loading"
 import { DogsCard } from "./components/dogsCard.component"
-import { ListPaginationDogs } from "./components/pagination"
+import { ListPagination } from "../../common-app/pagination"
 import { PictureInfo } from "./listDogs.vm"
 
 interface data {
     dogs: PictureInfo[],
-    currentDogs: PictureInfo[],
     fetchOK: boolean,
     handlePagination: (event, pageNumber: number) => void,
     handleChangeRowsPerPage: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
     currentPage: number,
     imagesPerPage: number,
-    loadingImages: boolean
+    loadingImages: boolean,
+    totalImages: number,
+
+
 }
 
 export const ListDogsComponent = ({
-    dogs, currentDogs, fetchOK, handlePagination, handleChangeRowsPerPage, currentPage, imagesPerPage, loadingImages
+    dogs, fetchOK, currentPage, loadingImages
 }: data) => {
     return (
         <div className="sectionBox">
@@ -24,35 +26,25 @@ export const ListDogsComponent = ({
                 loadingImages ? (
                     <Loading />
                 ) : (
-
                     fetchOK ? (
                         <div className="listImagesBox">
                             <div className="listImages">
                                 {
-                                    currentDogs.map((dog: PictureInfo, index: number) => (
+                                    dogs.map((dog: PictureInfo, index: number) => (
                                         <DogsCard index={index} dog={dog} />
                                     ))
 
                                 }
                             </div>
-
-                            <ListPaginationDogs
-                                dogs={dogs.length}
-                                pagination={handlePagination}
-                                changeRowsPerPage={handleChangeRowsPerPage}
-                                page={currentPage}
-                                perPage={imagesPerPage}
-                            />
                         </div>
-
                     ) : (
                         ""
                     )
                 )
             }
-
-
-
+            <ListPagination
+                page={currentPage}
+            />
         </div>
 
     )

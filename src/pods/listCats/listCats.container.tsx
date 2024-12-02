@@ -14,12 +14,15 @@ export const ListCatsContainer = () => {
     const {
         currentPage, setCurrentPage,
         imagesPerPage, setImagesPerPage,
-        loadingImages, setLoadingImages
+        loadingImages, setLoadingImages,
+        totalImages
     } = context;
+
+
 
     useEffect(() => {
         handleFetchData();
-    }, [])
+    }, [currentPage])
 
     const handleFetchData = async () => {
         console.log("feching data ----");
@@ -40,19 +43,19 @@ export const ListCatsContainer = () => {
         setCurrentPage(0);
     }
 
-    const currentCats = cats.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
+    // const currentCats = cats.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
 
     return (
         <>
             <ListCatsComponent
                 cats={cats}
-                currentCats={currentCats}
                 fetchOK={fetchOK}
                 handlePagination={handlePagination}
                 handleChangeRowsPerPage={handleChangeRowsPerPage}
                 currentPage={currentPage}
                 imagesPerPage={imagesPerPage}
                 loadingImages={loadingImages}
+                totalImages={totalImages}
             />
         </>
     )

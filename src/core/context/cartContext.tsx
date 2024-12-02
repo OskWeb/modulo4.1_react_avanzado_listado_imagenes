@@ -7,6 +7,12 @@ interface ProviderProps {
     children: ReactNode;
 }
 
+interface FormData {
+    firstName: string;
+    lastName: string;
+    email: string;
+}
+
 interface CartContextEntity {
     open: boolean;
     setOpen: ({ }: boolean) => void;
@@ -18,6 +24,12 @@ interface CartContextEntity {
     setImagesPerPage: ({ }: number) => void;
     loadingImages: boolean;
     setLoadingImages: ({ }: boolean) => void;
+    totalImages: number;
+    setTotalImages: ({ }: number) => void;
+    hasMore: boolean;
+    setHasMore: ({ }: boolean) => void;
+    formData: FormData;
+    setFormData: ({ }: FormData) => void;
 }
 
 // Valor inicial vacío
@@ -32,8 +44,17 @@ const initialContext: CartContextEntity = {
     setImagesPerPage: () => { },
     loadingImages: false,
     setLoadingImages: () => { },
+    totalImages: 100,
+    setTotalImages: () => { },
+    hasMore: true,
+    setHasMore: () => { },
+    formData: {
+        firstName: '',
+        lastName: '',
+        email: ''
+    },
+    setFormData: () => { }
 };
-
 
 export const CartContext = createContext<CartContextEntity>(initialContext);
 
@@ -43,6 +64,13 @@ export const CartProvider: React.FC<ProviderProps> = ({ children }) => {
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [imagesPerPage, setImagesPerPage] = useState<number>(10);
     const [loadingImages, setLoadingImages] = useState<boolean>(false);
+    const [totalImages, setTotalImages] = useState<number>(100);
+    const [hasMore, setHasMore] = useState<boolean>(true);
+    const [formData, setFormData] = React.useState({
+        firstName: '',
+        lastName: '',
+        email: ''
+    });
 
     return (
         <CartContext.Provider value={{
@@ -55,7 +83,13 @@ export const CartProvider: React.FC<ProviderProps> = ({ children }) => {
             imagesPerPage,
             setImagesPerPage,
             loadingImages,
-            setLoadingImages
+            setLoadingImages,
+            totalImages,
+            setTotalImages,
+            hasMore,
+            setHasMore,
+            formData,
+            setFormData
         }}>
             {children}
         </CartContext.Provider>

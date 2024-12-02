@@ -41,8 +41,6 @@ export const CheckoutHeaderComponent = () => {
                     <ChevronLeftIcon /> Continuar comprando
                 </Button>
             </div>
-
-
             <CheckoutStepper />
         </AppBar>
 

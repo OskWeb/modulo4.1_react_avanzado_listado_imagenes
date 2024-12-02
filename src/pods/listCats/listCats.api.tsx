@@ -5,7 +5,12 @@ export const fetchDataListCats = async (page: number, setLoadingCats: { ({ }: bo
     const apiKey = import.meta.env.VITE_CATS_API_KEY;
     setLoadingCats(true);
     try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=DESC&page=${page}&limit=200&api_key=${apiKey}`);
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=DESC&page=${page}&limit=10`, {
+            method: 'get',
+            headers: {
+                'x-api-key': apiKey
+            }
+        });
         const data = await response.json();
 
         if (response.ok) {
@@ -24,6 +29,7 @@ export const fetchDataListCats = async (page: number, setLoadingCats: { ({ }: bo
                     description: cat.breeds[0]?.description,
                     selected: false
                 }));
+
 
             console.log(cats);
             return cats;

@@ -9,7 +9,7 @@ export const CheckoutCartComponent = ({ products, setProducts }) => {
 
     const context = useContext(CheckoutContext);
 
-    const { formOk, setFormOk } = context;
+    const { setFormOk } = context;
 
     useState(() => {
         setFormOk(true);
@@ -21,7 +21,6 @@ export const CheckoutCartComponent = ({ products, setProducts }) => {
             <div className="step-title">
                 <h2>Mi cesta</h2>
             </div>
-
             {
                 products.length > 0 ? (
                     <div className="productsBox">
@@ -32,21 +31,12 @@ export const CheckoutCartComponent = ({ products, setProducts }) => {
                                 ))
                             }
                         </div>
-
                         <ButtonsNavigation back={""} next={"/checkout/personal_data"} />
                     </div>
                 ) : (
                     <EmptyCart iconSize={80} />
                 )
             }
-
-
-
-
-
-
-
-
         </div>
     )
 

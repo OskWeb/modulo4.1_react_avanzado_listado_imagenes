@@ -9,7 +9,6 @@ import { CartProvider } from '../context/cartContext'
 
 import { CheckoutPersonalDataPage } from '../../scenes/checkoutPersonalData'
 import { CheckoutPaymentPage } from '../../scenes/checkoutPayment'
-import { CheckoutProvider } from '../context/checkoutContext'
 import { CheckoutRoutes } from '../../common-app/CheckoutRoutes'
 
 export const RouterComponent: React.FC = () => {

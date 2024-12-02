@@ -14,13 +14,16 @@ export const ListDogsContainer: React.FC = () => {
     const {
         currentPage, setCurrentPage,
         imagesPerPage, setImagesPerPage,
-        loadingImages, setLoadingImages
+        loadingImages, setLoadingImages,
+        totalImages,
+        hasMore, setHasMore
     } = context;
+
 
     useEffect(() => {
         handleFetchData();
-        console.log("--inicio componente--");
-    }, [])
+        setHasMore(true);
+    }, [currentPage])
 
     const handleFetchData = async () => {
         const data = await fetchDataListDogs(currentPage, setLoadingImages);
@@ -28,6 +31,9 @@ export const ListDogsContainer: React.FC = () => {
         if (data) {
             setDogs(data);
             setFetchOK(true);
+            if (data.length < 10) {
+                setHasMore(false);
+            }
         }
     }
     const handlePagination = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, pageNumber: number) => {
@@ -39,19 +45,21 @@ export const ListDogsContainer: React.FC = () => {
         setCurrentPage(0);
     }
 
-    const currentDogs = dogs.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
+    // const currentDogs = dogs.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
 
     return (
         <>
             <ListDogsComponent
                 dogs={dogs}
-                currentDogs={currentDogs}
                 fetchOK={fetchOK}
                 handlePagination={handlePagination}
                 handleChangeRowsPerPage={handleChangeRowsPerPage}
                 currentPage={currentPage}
                 imagesPerPage={imagesPerPage}
                 loadingImages={loadingImages}
+                totalImages={totalImages}
+
+
             />
         </>
     )

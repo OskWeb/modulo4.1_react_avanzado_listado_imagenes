@@ -5,7 +5,12 @@ export const fetchDataListDogs = async (currentPage: number, setLoadingImages: {
     const apiKey = import.meta.env.VITE_DOGS_API_KEY;
     setLoadingImages(true);
     try {
-        const response = await fetch(`https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=DESC&page=${currentPage}&limit=100&api_key=${apiKey}`);
+        const response = await fetch(`https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=DESC&page=${currentPage}&limit=10`, {
+            method: 'get',
+            headers: {
+                'x-api-key': apiKey
+            }
+        });
         const data = await response.json();
 
         if (response.ok) {
@@ -21,7 +26,7 @@ export const fetchDataListDogs = async (currentPage: number, setLoadingImages: {
             }
 
             ));
-
+            console.log(dogs);
             return dogs;
         }
 
