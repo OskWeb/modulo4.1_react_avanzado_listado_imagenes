@@ -26,11 +26,9 @@ export const fetchDataListDogs = async (currentPage: number, setLoadingImages: {
             }
 
             ));
-            console.log(dogs);
+
             return dogs;
         }
-
-
     } catch (error) {
         console.log('Error fetching data:', error)
     } finally {

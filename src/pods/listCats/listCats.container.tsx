@@ -18,8 +18,6 @@ export const ListCatsContainer = () => {
         totalImages
     } = context;
 
-
-
     useEffect(() => {
         handleFetchData();
     }, [currentPage])
@@ -42,8 +40,6 @@ export const ListCatsContainer = () => {
         setImagesPerPage(parseInt(event.target.value, 10));
         setCurrentPage(0);
     }
-
-    // const currentCats = cats.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
 
     return (
         <>

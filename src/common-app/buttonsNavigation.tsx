@@ -2,7 +2,6 @@ import { Button } from "@mui/material"
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Link } from "react-router-dom";
-import { useFormikContext } from "formik";
 import { useContext } from "react";
 import { CheckoutContext } from "../core/context/checkoutContext";
 
@@ -18,7 +17,6 @@ export const ButtonsNavigation = ({ back, next }: props) => {
 
     return (
         <div className="buttonsNavigation">
-
             {
                 back ? (
                     <Button
@@ -38,7 +36,6 @@ export const ButtonsNavigation = ({ back, next }: props) => {
             }
             {
                 next ? (
-
                     <Button
                         color='success'
                         variant='contained'

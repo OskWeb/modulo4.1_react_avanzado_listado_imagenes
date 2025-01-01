@@ -11,16 +11,20 @@ main {
 .cart {
   width: 400px;
   height: 100vh;
-  background-color: azure;
+  background-color: white;
   box-shadow: 0px 0px 5px black;
 }
 .cart-top {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(78, 78, 240);
-  color: white;
-  padding: 10px;
+  background-color: white;
+  color: #42a5f5;
+  padding: 20px;
   height: 80px;
+  border-bottom: 1px solid black;
+}
+.cart-top .MuiButtonBase-root {
+  color: #42a5f5;
 }
 .cart-top-title {
   display: flex;
@@ -40,6 +44,9 @@ main {
   flex-direction: column;
   padding: 5px;
 }
+.cart-content > .MuiButtonBase-root {
+  margin: 20px;
+}
 .cart-content .goToCartButton {
   margin: 20px;
 }
@@ -48,11 +55,9 @@ main {
   overflow-y: scroll;
   margin: 10px 20px 30px 20px;
 }
-
 .cart-content-data .cartProduct {
   width: 100%;
   height: 50px;
-
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -63,7 +68,6 @@ main {
 }
 .cart-content-data .cartProduct .left-content {
   display: flex;
-
 }
 .cart-content-data .cartProduct .left-content img{
   margin-right: 6px;
@@ -71,6 +75,11 @@ main {
 }
 .cart-content-data .cartProduct .left-content span {
   align-self: center;
+}
+.cartProduct .MuiButtonBase-root {
+  width: 30px;
+  height: 30px;
+  color: #42a5f5;
 }
 .layout-app-container {
   width: 100%;
@@ -86,7 +95,6 @@ main {
   text-align: center;
   margin-top: 10px;
 }
-
 .emptyCartBox .text-info .text-info-black {
   font-weight: bold;
 }
@@ -112,7 +120,6 @@ main {
   height: 75vh;
   overflow-y: scroll;
   padding: 20px;
-
 }
 .card {
   display: flex;
@@ -124,7 +131,6 @@ main {
   height: 200px;
   object-fit: cover;
 }
-
 .checkoutHeader {
   display: flex;
   flex-direction: column;
@@ -132,16 +138,17 @@ main {
 .checkoutHeader .buttonBox {
   width: 100%;
 }
-
-
+.checkoutHeader .buttonBox .MuiButtonBase-root {
+  background-color: transparent;
+  color: white;
+}
 .stepper {
   display: flex;
   justify-content: space-between;
-  height: 100px;
+  height: 50px;
   margin: 30px;
-position: relative;
-width: 100%;
-
+  position: relative;
+  width: 100%;
 }
 .stepper .step {
   display: flex;
@@ -160,10 +167,10 @@ width: 100%;
   line-height: 50px;
 }
 .stepNumberActive {
-  background-color: rgb(78, 78, 240);
+  background-color: #000000;
 }
 .stepNumberDisabled {
-  background-color: gray;
+  background-color: #a5abbd;
 }
 .stepper .stepLine {
   width: 100%;
@@ -176,43 +183,34 @@ width: 100%;
 .steps-box {
   height: 400px;
 }
-
 .checkoutCartBox {
-
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-left: 50px;
   margin-right: 50px;
-  margin-top: 300px;
-
-
+  margin-top: 200px;
 }
 .checkoutCartBox .step-title {
   width: 100%;
   margin-bottom: 30px;
 }
-
 .productsList {
   display: flex;
   width: 100%;
   flex-direction: column;
-
-  background-color: azure;
 }
-
 .cartProductExtended {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px;
+  margin-bottom: 20px;
 }
 .cartProductExtended .contentBox {
   display: flex;
 }
 .cartProductExtended .left-content {
   margin-right: 30px;
-
 }
 .cartProductExtended .left-content img {
   height: 100px;
@@ -224,10 +222,13 @@ width: 100%;
   border-bottom: 2px solid black;
   padding-bottom: 5px;
 }
-
 .cartProductExtended .right-content .info {
   margin-top: 5px;
   margin-left: 15px;
+  margin-right: 40px;
+}
+.cartProductExtended .MuiButtonBase-root {
+  color: #42a5f5;
 }
 
 /*---------------Form personal data --------------------------------------------*/
@@ -267,7 +268,7 @@ width: 100%;
 .submitPersonalDataButton {
   width: 100px;
   padding: 10px;
-  background-color: rgb(78, 78, 240);
+  background-color: #42a5f5;
   border: none;
   border-radius: 5px;
   color: white;
@@ -276,7 +277,6 @@ width: 100%;
   box-shadow: 0px 0px 2px gray;
   cursor: pointer;
 }
-
 .field-error {
   margin-left: 20px;
   color: red;
@@ -285,66 +285,51 @@ width: 100%;
 /*Download page ------------------------------------------------------------------------------------*/
 
 .checkoutPersonalDataBox {
-
   display: flex;
   flex-direction: column;
-
-   margin: 290px 50px 0px 50px;
+  margin: 200px 50px 0px 50px;
 }
-.checkoutPersonalDataBox .step-title {
-
-}
-
-
 .checkoutPersonalDataBox .personalInfoSection {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
-  /* margin: 0px 50px 0px 50px; */
 }
-
-
 .checkoutPersonalDataBox .personalInfoSection .infoBadge {
   display: flex;
   flex-direction: column;
-  background-color: rgb(78, 78, 240);
-  color: white;
+  background-color: #ECEDF8;
+  color: #42a5f5;
   font-size: 24px;
   padding: 30px;
   border-radius: 15px;
-  /* margin: 0px 20px 0px 20px; */
   width: 500px;
   justify-content: center;
+}
+.checkoutPersonalDataBox .personalInfoSection .infoBadge .MuiSvgIcon-root {
+  color: #42a5f5;
 }
 
 @media(max-width: 970px) {
   .checkoutPersonalDataBox .personalInfoSection .infoBadge {
     width: 100%;
-    /* margin: 0px 50px 0px 50px; */
   }
   .personalDataForm {
     width: 100%;
-    /* margin: 20px 50px 20px 50px; */
   }
 }
 .checkoutPersonalDataBox .personalInfoSection .infoBadge span {
   width: 150px;
 }
-/* .step-title {
-  margin: 20px 0px 20px 50px;
-} */
-
 .checkoutDownloadBox {
-
-  margin: 290px 50px 0px 50px;
+  margin: 200px 50px 0px 50px;
 }
 .checkoutDownloadBox .step-title {
   margin-bottom: 30px;
 }
 .downloadBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
@@ -353,14 +338,16 @@ width: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  max-width: 800px;
+  border-radius: 0px 0px 5px 5px;
+  box-shadow: 0px 0px 2px black;
 }
 .downloadImage img {
-  width: 200px;
+  width: 100%;
   height: 200px;
   object-fit: cover;
-  width: 100%;
 }
-.downloadImage button {
+.downloadImage a {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -368,8 +355,11 @@ width: 100%;
   padding: 10px;
   border: none;
   border-radius: 0px 0px 5px 5px;
+  background-color: #42a5f5;
+  color: white;
+  text-decoration: none;
 }
-.downloadImage button:hover {
+.downloadImage a:hover {
   cursor: pointer;
 }
 
@@ -390,17 +380,17 @@ width: 100%;
     width: 100%;
   }
 }
-
 .productsBox {
   width: 100%;
 }
-
 .buttonsNavigation {
-  width: 270px;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  margin: 0 auto;
+  justify-content: flex-end;
   margin-top: 50px;
   gap: 10px;
   margin-bottom: 20px;
+}
+.buttonsNavigation .MuiButton-root {
+  background-color: #42a5f5;
 }

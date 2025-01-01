@@ -1,4 +1,4 @@
-import { AppBar, colors, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material'
+import { AppBar, createTheme, Tab, Tabs, ThemeProvider } from '@mui/material'
 import { useContext, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Cart } from './components/cart.component';
@@ -60,6 +60,7 @@ export const PageHeaderComponent = () => {
                 alignItems: 'center',
                 padding: '10px 50px 10px 50px',
                 zIndex: 2,
+                backgroundColor: '#42a5f5'
             }}
         >
             <ThemeProvider theme={theme}>
@@ -74,8 +75,6 @@ export const PageHeaderComponent = () => {
                         label="Cats"
                         value="/cats"
                         className='tab'
-
-
                     />
                     <Tab
                         key="tab2"
@@ -84,7 +83,6 @@ export const PageHeaderComponent = () => {
                         label="Dogs"
                         value="/dogs"
                         className='tab'
-
                     />
                 </Tabs>
             </ThemeProvider>

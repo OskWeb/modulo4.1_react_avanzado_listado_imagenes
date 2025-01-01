@@ -12,8 +12,6 @@ interface data {
     imagesPerPage: number,
     loadingImages: boolean,
     totalImages: number,
-
-
 }
 
 export const ListDogsComponent = ({
@@ -21,7 +19,6 @@ export const ListDogsComponent = ({
 }: data) => {
     return (
         <div className="sectionBox">
-
             {
                 loadingImages ? (
                     <Loading />

@@ -2,7 +2,6 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useState } from "re
 import React from "react";
 import { PictureInfo } from "../interfaces/PictureInfo";
 
-
 interface ProviderProps {
     children: ReactNode;
 }
@@ -32,7 +31,6 @@ interface CartContextEntity {
     setFormData: ({ }: FormData) => void;
 }
 
-// Valor inicial vacío
 const initialContext: CartContextEntity = {
     open: false,
     setOpen: () => { },

@@ -14,7 +14,6 @@ export const fetchDataListCats = async (page: number, setLoadingCats: { ({ }: bo
         const data = await response.json();
 
         if (response.ok) {
-
             const cats = data
                 .filter((cat: CatsData) =>
                     cat.breeds[0]?.name.length > 0 &&
@@ -29,13 +28,8 @@ export const fetchDataListCats = async (page: number, setLoadingCats: { ({ }: bo
                     description: cat.breeds[0]?.description,
                     selected: false
                 }));
-
-
-            console.log(cats);
             return cats;
         }
-
-
     } catch (error) {
         console.log('Error fetching data:', error)
     } finally {

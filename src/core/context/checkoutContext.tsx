@@ -12,7 +12,6 @@ interface CheckoutContextEntity {
     setFormOk: ({ }: boolean) => void;
 }
 
-// Valor inicial vacío
 const initialContext: CheckoutContextEntity = {
     activeStep: 0,
     setActiveStep: () => { },

@@ -8,7 +8,7 @@ interface Data {
     cat: PictureInfo
 }
 
-export const CatsCard = ({ index, cat }: Data) => {
+export const CatsCard = ({ cat }: Data) => {
 
     const context = useContext(CartContext);
     const { products, setProducts, currentPage } = context;
@@ -33,9 +33,6 @@ export const CatsCard = ({ index, cat }: Data) => {
         ) : (
             setProducts(products.filter(p => p.id !== cat.id))
         )
-
-        console.log("perro: " + event.target.checked);
-
     }
 
     const findIfChecked = (id: string) => {
@@ -51,10 +48,5 @@ export const CatsCard = ({ index, cat }: Data) => {
                 <span>{cat.title}</span>
             </div>
         </div>
-
-
-
-
-
     )
 }

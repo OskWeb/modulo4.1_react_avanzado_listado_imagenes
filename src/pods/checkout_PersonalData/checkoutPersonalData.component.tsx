@@ -19,8 +19,6 @@ export const CheckoutPersonalDataComponent = () => {
         } else {
             setFormOk(true);
         }
-
-
     })
     return (
         <div className="checkoutPersonalDataBox">
@@ -33,21 +31,14 @@ export const CheckoutPersonalDataComponent = () => {
                     <span>
                         Introduce tu información básica
                     </span>
-
                     <BadgeOutlinedIcon sx={{
                         color: 'white',
                         fontSize: '40px',
                         marginTop: '15px'
                     }} />
                 </div>
-
             </div>
-
             <ButtonsNavigation back={"/checkout/cart"} next={"/checkout/download"} />
-
-
-
         </div>
-
     )
 }

@@ -5,7 +5,6 @@ import { CartContext } from "../../core/context/cartContext";
 export const CheckoutPaymentContainer = () => {
 
     const context = useContext(CartContext);
-
     const { products } = context;
 
     return (

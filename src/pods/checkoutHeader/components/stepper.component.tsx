@@ -1,17 +1,8 @@
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepButton from '@mui/material/StepButton';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import React, { useContext, useEffect } from 'react';
-import { Box } from '@mui/material';
+import { useContext, useEffect } from 'react';
 import { CheckoutContext } from '../../../core/context/checkoutContext';
 import { useLocation } from 'react-router-dom';
 
-const steps = ['Cesta', 'Datos personales', 'Pago'];
-
 export const CheckoutStepper = () => {
-
     const location = useLocation();
     const context = useContext(CheckoutContext);
     const { activeStep, setActiveStep } = context;
@@ -34,20 +25,9 @@ export const CheckoutStepper = () => {
         }
     }
 
-
-
-    const [completed, setCompleted] = React.useState<{
-        [k: number]: boolean;
-    }>({});
-
-    const totalSteps = () => {
-        return steps.length;
-    };
-
     const steps = ['Cesta', 'Datos personales', 'Descargar'];
 
     return (
-
         <div className='stepper'>
             {
                 steps.map((step, index) => (

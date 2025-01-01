@@ -40,6 +40,5 @@ export const ListCatsComponent = ({ cats, fetchOK, currentPage, loadingImages }:
                 page={currentPage}
             />
         </div>
-
     )
 }

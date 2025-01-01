@@ -6,7 +6,6 @@ import { ListDogsPage } from '../../scenes/dogs'
 import { RouteNotFound } from '../../common/routeNotFound'
 import { CheckoutCartPage } from '../../scenes/checkoutCart'
 import { CartProvider } from '../context/cartContext'
-
 import { CheckoutPersonalDataPage } from '../../scenes/checkoutPersonalData'
 import { CheckoutPaymentPage } from '../../scenes/checkoutPayment'
 import { CheckoutRoutes } from '../../common-app/CheckoutRoutes'
@@ -32,8 +31,6 @@ export const RouterComponent: React.FC = () => {
                     </CartProvider>
                 </BrowserRouter>
             </main>
-
-
         </>
     )
 }

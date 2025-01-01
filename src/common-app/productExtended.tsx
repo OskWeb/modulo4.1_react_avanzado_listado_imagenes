@@ -31,13 +31,9 @@ export const ProductExtended: React.FC<ProductEntity> = ({ product, products, se
                                 <li className="description">{product.description}</li>
                             )
                         }
-
                     </div>
-
                 </div>
             </div>
-
-
             <Button onClick={() => deleteProduct()}>
                 <DeleteForeverOutlinedIcon />
             </Button>

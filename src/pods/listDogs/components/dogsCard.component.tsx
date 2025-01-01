@@ -7,7 +7,7 @@ interface Data {
     index: number,
     dog: PictureInfo
 }
-export const DogsCard = ({ index, dog }: Data) => {
+export const DogsCard = ({ dog }: Data) => {
 
     const context = useContext(CartContext);
     const { products, setProducts, currentPage } = context;
@@ -33,9 +33,6 @@ export const DogsCard = ({ index, dog }: Data) => {
 
             setProducts(products.filter(p => p.id !== dog.id))
         )
-
-        console.log("perro: " + event.target.checked);
-
     }
 
     const findIfChecked = (id: string) => {
@@ -52,10 +49,5 @@ export const DogsCard = ({ index, dog }: Data) => {
                 <span>{dog.title}</span>
             </div>
         </div>
-
-
-
-
-
     )
 }

@@ -1,6 +1,8 @@
 import { Box, Button } from "@mui/material"
 import { useContext } from "react";
 import { CartContext } from "../core/context/cartContext";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 interface dogsPaginationEntity {
     page: number;
@@ -36,10 +38,10 @@ export const ListPagination: React.FC<dogsPaginationEntity> = ({ page }) => {
             <Button
                 variant="contained"
                 color="primary"
-                disabled={page === 1} // Deshabilita si estás en la primera página
+                disabled={page === 1}
                 onClick={handlePrevPage}
             >
-                Anterior
+                <ChevronLeftIcon />
             </Button>
             {
                 page > 1 ? (
@@ -70,10 +72,10 @@ export const ListPagination: React.FC<dogsPaginationEntity> = ({ page }) => {
             <Button
                 variant="contained"
                 color="primary"
-                disabled={!hasMore} // Deshabilita si no hay más datos
+                disabled={!hasMore}
                 onClick={handleNextPage}
             >
-                Siguiente
+                <ChevronRightIcon />
             </Button>
         </Box>
     )

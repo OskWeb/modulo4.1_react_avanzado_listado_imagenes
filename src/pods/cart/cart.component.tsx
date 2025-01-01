@@ -27,19 +27,22 @@ export const CartComponent: React.FC<CartProps> = ({
                     <ShoppingCartIcon />
                     <span>Mi cesta</span>
                 </div>
-
                 <Button onClick={() => closeCart()} sx={{
                     color: 'white'
                 }}>
                     <CloseIcon />
                 </Button>
-
             </div>
             <div className='cart-content'>
                 {
                     Array.isArray(products) && products.length > 0 ? (
                         <>
-                            <Button onClick={() => setProducts([])} className='emptyCartButton'>
+                            <Button onClick={() => setProducts([])} className='emptyCartButton'
+                                sx={{
+                                    color: '#42a5f5',
+                                    border: '1px solid #42a5f5'
+                                }}
+                            >
                                 Vaciar Carrito <RemoveShoppingCartOutlinedIcon />
                             </Button>
                             <div className='cart-content-data'>
@@ -56,13 +59,12 @@ export const CartComponent: React.FC<CartProps> = ({
                                 to="/checkout/cart"
                                 className='goToCartButton'
                                 sx={{
-                                    backgroundColor: 'rgb(78, 78, 240)'
+                                    backgroundColor: '#42a5f5'
                                 }}
                             >
                                 Ir a mi cesta <ChevronRightIcon />
                             </Button>
                         </>
-
                     ) : (
                         <EmptyCart iconSize={40} />
                     )

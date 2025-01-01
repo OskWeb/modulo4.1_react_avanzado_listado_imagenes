@@ -16,9 +16,8 @@ export const ListDogsContainer: React.FC = () => {
         imagesPerPage, setImagesPerPage,
         loadingImages, setLoadingImages,
         totalImages,
-        hasMore, setHasMore
+        setHasMore
     } = context;
-
 
     useEffect(() => {
         handleFetchData();
@@ -27,7 +26,6 @@ export const ListDogsContainer: React.FC = () => {
 
     const handleFetchData = async () => {
         const data = await fetchDataListDogs(currentPage, setLoadingImages);
-
         if (data) {
             setDogs(data);
             setFetchOK(true);
@@ -45,8 +43,6 @@ export const ListDogsContainer: React.FC = () => {
         setCurrentPage(0);
     }
 
-    // const currentDogs = dogs.slice(currentPage * imagesPerPage, currentPage * imagesPerPage + imagesPerPage);
-
     return (
         <>
             <ListDogsComponent
@@ -58,8 +54,6 @@ export const ListDogsContainer: React.FC = () => {
                 imagesPerPage={imagesPerPage}
                 loadingImages={loadingImages}
                 totalImages={totalImages}
-
-
             />
         </>
     )

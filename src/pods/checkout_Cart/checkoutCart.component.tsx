@@ -16,10 +16,9 @@ export const CheckoutCartComponent = ({ products, setProducts }) => {
     })
 
     return (
-
         <div className="checkoutCartBox">
             <div className="step-title">
-                <h2>Mi cesta</h2>
+                <h1>Mi cesta</h1>
             </div>
             {
                 products.length > 0 ? (
@@ -39,6 +38,4 @@ export const CheckoutCartComponent = ({ products, setProducts }) => {
             }
         </div>
     )
-
-
 }

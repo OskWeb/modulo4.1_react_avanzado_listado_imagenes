@@ -34,11 +34,9 @@ export const PersonalDataForm = () => {
 
     const [snackbar, setSnackbar] = useState<snackbarType>({
         open: false,
-
     });
 
     const handleSubmit = async (values) => {
-        console.log(values);
         setFormOk(true);
         setFormData(values);
         handleStateChange(SlideTransition);
@@ -56,7 +54,6 @@ export const PersonalDataForm = () => {
             transition,
         });
     }
-
 
     return (
         <Formik
@@ -82,7 +79,6 @@ export const PersonalDataForm = () => {
                                 <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
                             )}
                         </div>
-
                         <ErrorMessage
                             name='firstName'
                             component="div"
@@ -96,8 +92,6 @@ export const PersonalDataForm = () => {
                                 name="lastName"
                                 placeholder="Apellido"
                                 type="text"
-
-
                             />
                             {!errors.lastName && touched.lastName && (
                                 <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
@@ -116,15 +110,11 @@ export const PersonalDataForm = () => {
                                 name="email"
                                 placeholder="Email"
                                 type="email"
-
-
                             />
                             {!errors.email && touched.email && (
                                 <CheckCircleIcon style={{ color: "#05cc30" }} className='checkForm' />
                             )}
                         </div>
-
-
                         <ErrorMessage
                             name='email'
                             component="div"
@@ -140,15 +130,9 @@ export const PersonalDataForm = () => {
                             Guardar
                         </button>
                     </div>
-
-
                     <TransitionsSnackbar snackbarState={snackbar} handleStateChange={handleStateChange} />
                 </Form>
             )}
-
-
-
-
         </Formik>
     )
 }

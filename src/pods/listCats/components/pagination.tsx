@@ -1,4 +1,4 @@
-import { Pagination, TablePagination } from "@mui/material"
+import { Pagination } from "@mui/material"
 
 interface catsPaginationEntity {
     cats: number;
@@ -6,10 +6,9 @@ interface catsPaginationEntity {
     changeRowsPerPage: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
     page: number;
     perPage: number;
-
 }
 
-export const ListPaginationCats: React.FC<catsPaginationEntity> = ({ cats, pagination, changeRowsPerPage, page, perPage }) => {
+export const ListPaginationCats: React.FC<catsPaginationEntity> = ({ cats, pagination, page }) => {
     return (
         <Pagination className="pagination" count={cats} page={page} onChange={(event, page) => pagination(event, page)} />
     )

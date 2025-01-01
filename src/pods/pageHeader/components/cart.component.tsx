@@ -13,10 +13,8 @@ export const Cart = () => {
     }
 
     return (
-
         <Badge badgeContent={products.length} color='secondary' onClick={() => openCart()}>
             <ShoppingCartOutlinedIcon />
         </Badge>
-
     )
 }

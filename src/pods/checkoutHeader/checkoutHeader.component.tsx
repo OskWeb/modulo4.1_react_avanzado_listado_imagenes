@@ -1,17 +1,9 @@
 import { AppBar, Button } from '@mui/material'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { CheckoutStepper } from './components/stepper.component';
 
 export const CheckoutHeaderComponent = () => {
-
-
-
-    useEffect(() => {
-        // setLoad(true);
-    }, [])
-
 
     return (
         <AppBar
@@ -22,9 +14,8 @@ export const CheckoutHeaderComponent = () => {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '10px 50px 10px 50px',
+                backgroundColor: '#42a5f5',
                 zIndex: 1,
-
-
             }}
             className='checkoutHeader'
         >
@@ -43,9 +34,5 @@ export const CheckoutHeaderComponent = () => {
             </div>
             <CheckoutStepper />
         </AppBar>
-
-
-
-
     )
 }
